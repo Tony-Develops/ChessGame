@@ -1,11 +1,14 @@
 package chessPieces;
 
+import tools.Position;
+import tools.Type;
+
 public abstract class ChessPiece {
 	
 	private Position pos;
 	private Type type;
 	
-	public void ChessPiece(Position pos, Type type) {
+	public ChessPiece(Position pos, Type type) {
 		this.pos = pos;
 		this.type = type;
 	}
@@ -14,7 +17,7 @@ public abstract class ChessPiece {
 		pos = destPos;
 	}
 	
-	public abstract calcPositions();
+	public abstract Position[] calcPositions(int boardSizeX, int boardSizeY);
 	
 	public Position getPos() {
 		return pos;
