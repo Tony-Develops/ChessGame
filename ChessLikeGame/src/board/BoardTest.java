@@ -38,6 +38,13 @@ public class BoardTest {
 	public void movementException2() throws Throwable
 	{
 		board.place(new Bishop(new Position(0,0), Type.White));
+		board.move(new Position(0,0), new Position(2,3), Type.Black);		
+	}
+	
+	@Test(expected = MovementException.class)
+	public void movementException3() throws Throwable
+	{
+		board.place(new Bishop(new Position(0,0), Type.White));
 		board.place(new Bishop(new Position(3,3), Type.White));
 		board.move(new Position(0,0), new Position(3,3), Type.White);		
 	}

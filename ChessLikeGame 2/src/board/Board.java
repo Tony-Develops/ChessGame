@@ -7,13 +7,15 @@ import tools.Type;
 
 public class Board {
 	
+	final int SIZEXLIMIT = 6;
+	final int SIZEYLIMIT = 4;
 	ChessPiece[][] board;
 	int sizeX;
 	int sizeY;
 	
 	public Board(int sizeX, int sizeY) throws BoardException
 	{
-		if(sizeX < 6 || sizeY < 4)
+		if(sizeX < SIZEXLIMIT || sizeY < SIZEYLIMIT)
 		{
 			throw new BoardException("Size must be of dimension 6x4 or greater!");
 		}
@@ -68,10 +70,7 @@ public class Board {
 		//If there is a chess piece in the destination and checks if its the same colour
 		if(destChessPiece != null)
 		{
-			if(destChessPiece.getType() == type)
-			{
-				throw new MovementException("Cannot move into your own chess piece!");
-			}
+			throw new MovementException("Cannot move into your own chess piece!");
 		}
 		
 		//Move the chess piece to the new spot
@@ -86,7 +85,7 @@ public class Board {
 		Position[] possiblePos = chessPiece.calcPositions(sizeX, sizeY);
 		for(int i = 0; i < possiblePos.length; i++)
 		{
-			if(destPos.getPosX() == possiblePos[i].getPosX() && destPos.getPosY() == possiblePos[i].getPosY())
+			if(destPos == possiblePos[i])
 			{
 				return true;
 			}

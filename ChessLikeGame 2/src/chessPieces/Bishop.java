@@ -26,7 +26,7 @@ public class Bishop extends ChessPiece {
 		for (int i = 1; (pos.getPosX() - i) > 0 && (pos.getPosY() - i) > 0; i ++) {
 			positions.add(new Position(pos.getPosX() - i, pos.getPosY() - 1));
 		}
-		return positions.toArray(new Position[positions.size()]);
+		return (Position[]) positions.toArray();
 	}
 
 }
