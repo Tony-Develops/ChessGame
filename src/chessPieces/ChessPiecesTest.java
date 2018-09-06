@@ -6,7 +6,7 @@ import board.*;
 import exceptions.*;
 import tools.*;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 
@@ -106,14 +106,14 @@ public class ChessPiecesTest {
 		Rook rook = new Rook(new Position(7,5), Type.White);
 		board.place(rook);
 	}
-	/*
+	
 	@Test
 	public void testPositionsRook() throws PlaceException
 	{
 		refreshBoard();
 		Rook rook = new Rook(new Position(3,2), Type.White);
 		board.place(rook);
-		assertArrayEquals(ROOKTEST,rook.calcPositions(board.getBoard()));
+		checkPositions(ROOKTEST, rook.calcPositions(board.getBoard()));
 	}
 	
 	@Test
@@ -124,7 +124,7 @@ public class ChessPiecesTest {
 		board.place(rook);
 		board.place(new Bishop(new Position(2,2), Type.White));
 		board.place(new Knight(new Position(3,0), Type.White));
-		assertArrayEquals(ROOKTESTALLIES,rook.calcPositions(board.getBoard()));
+		checkPositions(ROOKTESTALLIES, rook.calcPositions(board.getBoard()));
 	}
 	
 	@Test
@@ -135,7 +135,7 @@ public class ChessPiecesTest {
 		board.place(rook);
 		board.place(new Bishop(new Position(2,2), Type.Black));
 		board.place(new Knight(new Position(3,0), Type.Black));
-		assertArrayEquals(ROOKTESTENEMIES,rook.calcPositions(board.getBoard()));
+		checkPositions(ROOKTESTENEMIES, rook.calcPositions(board.getBoard()));
 	}
 	
 	@Test
@@ -144,7 +144,7 @@ public class ChessPiecesTest {
 		refreshBoard();
 		Bishop bishop = new Bishop(new Position(3,2), Type.White);
 		board.place(bishop);
-		assertArrayEquals(BISHOPTEST,bishop.calcPositions(board.getBoard()));
+		checkPositions(BISHOPTEST,bishop.calcPositions(board.getBoard()));
 	}
 	
 	@Test
@@ -155,7 +155,7 @@ public class ChessPiecesTest {
 		board.place(bishop);
 		board.place(new Rook(new Position(4,3), Type.White));
 		board.place(new Knight(new Position(2,1), Type.White));
-		assertArrayEquals(BISHOPTESTALLIES,bishop.calcPositions(board.getBoard()));
+		checkPositions(BISHOPTESTALLIES,bishop.calcPositions(board.getBoard()));
 	}
 	
 	@Test
@@ -166,7 +166,7 @@ public class ChessPiecesTest {
 		board.place(bishop);
 		board.place(new Rook(new Position(4,3), Type.Black));
 		board.place(new Knight(new Position(2,1), Type.Black));
-		assertArrayEquals(BISHOPTESTENEMIES,bishop.calcPositions(board.getBoard()));
+		checkPositions(BISHOPTESTENEMIES,bishop.calcPositions(board.getBoard()));
 	}
 	
 	@Test
@@ -175,7 +175,7 @@ public class ChessPiecesTest {
 		refreshBoard();
 		Knight knight = new Knight(new Position(3,2), Type.White);
 		board.place(knight);
-		assertArrayEquals(KNIGHTTEST,knight.calcPositions(board.getBoard()));
+		checkPositions(KNIGHTTEST,knight.calcPositions(board.getBoard()));
 	}
 	
 	@Test
@@ -186,7 +186,7 @@ public class ChessPiecesTest {
 		board.place(knight);
 		board.place(new Rook(new Position(5,3), Type.White));
 		board.place(new Bishop(new Position(1,1), Type.White));
-		assertArrayEquals(KNIGHTTESTALLIES,knight.calcPositions(board.getBoard()));
+		checkPositions(KNIGHTTESTALLIES,knight.calcPositions(board.getBoard()));
 	}
 	
 	@Test
@@ -197,11 +197,19 @@ public class ChessPiecesTest {
 		board.place(knight);
 		board.place(new Rook(new Position(5,3), Type.Black));
 		board.place(new Bishop(new Position(1,1), Type.Black));
-		assertArrayEquals(KNIGHTTESTENEMIES,knight.calcPositions(board.getBoard()));
-	} */
+		checkPositions(KNIGHTTESTENEMIES,knight.calcPositions(board.getBoard()));
+	} 
 	
 	private void refreshBoard()
 	{
 		board = emptyBoard;
+	}
+	
+	private void checkPositions(Position[] expected, Position[] actual) {
+		assertEquals(expected.length, actual.length);
+		for (int i = 0; i < expected.length; i++) {
+			assertEquals(expected[i].getPosX(), actual[i].getPosX());
+			assertEquals(expected[i].getPosY(), actual[i].getPosY());
+		}
 	}
 }

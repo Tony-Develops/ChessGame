@@ -22,7 +22,7 @@ public class Rook extends ChessPiece {
 				break;
 			}
 		}
-		for (int i = 1; (pos.getPosX() - 1) >= 0 && i <= 2; i --) {
+		for (int i = 1; (pos.getPosX() - 1) >= 0 && i <= 2; i ++) {
 			currentPosition = new Position((pos.getPosX() - i), pos.getPosY());
 			positions.add(currentPosition);
 			if (checkPosition(board, currentPosition) == true) {
@@ -36,7 +36,7 @@ public class Rook extends ChessPiece {
 				break;
 			}
 		}
-		for (int i = 1; (pos.getPosX() - 1) >= 0 && i <=2; i --) {
+		for (int i = 1; (pos.getPosX() - 1) >= 0 && i <=2; i ++) {
 			currentPosition = new Position(pos.getPosX(), (pos.getPosY() - i));
 			positions.add(currentPosition);
 			if (checkPosition(board, currentPosition) == true) {
