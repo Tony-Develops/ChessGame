@@ -106,7 +106,7 @@ public class ChessPiecesTest {
 		Rook rook = new Rook(new Position(7,5), Type.White);
 		board.place(rook);
 	}
-	
+	/*
 	@Test
 	public void testPositionsRook() throws PlaceException
 	{
@@ -198,7 +198,7 @@ public class ChessPiecesTest {
 		board.place(new Rook(new Position(5,3), Type.Black));
 		board.place(new Bishop(new Position(1,1), Type.Black));
 		assertArrayEquals(KNIGHTTESTENEMIES,knight.calcPositions(board.getBoard()));
-	}
+	} */
 	
 	private void refreshBoard()
 	{
