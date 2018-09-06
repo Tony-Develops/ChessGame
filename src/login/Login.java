@@ -39,14 +39,14 @@ public class Login {
 		}
 	}
 	
-	private String getDetails(String inputTemp) throws LoginException
+	protected String getDetails(String inputTemp) throws LoginException
 	{	
 		String userNameInput;
 		String passWordInput;
 		System.out.println("Username: ");
 			userNameInput = "";
 			userNameInput = scanner.nextLine();
-			if (userNameInput == inputTemp)
+			if (userNameInput.equals(inputTemp))
 			{
 				throw new LoginException("USER ALREADY LOGGED IN\n");
 			}
@@ -76,7 +76,7 @@ public class Login {
 	
 	
 	
-	private int checkUserName(String userNameInput)
+	protected int checkUserName(String userNameInput)
 	{
 		String nameTemp;
 		for(int i = 0; i < player.length; i++)
@@ -90,7 +90,7 @@ public class Login {
 		return -1;
 	}
 	
-	private boolean checkPassWord(int playerNumb, String passWordInput)
+	protected boolean checkPassWord(int playerNumb, String passWordInput)
 	{
 		String passTemp;
 		passTemp = player[playerNumb].getPassWord();
