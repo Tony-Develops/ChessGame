@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import exceptions.ChessPieceException;
+
 import exceptions.LoginException;
 
 public class LoginTest {
@@ -21,6 +21,7 @@ public class LoginTest {
 	@Test 
 	public void checkCorrectLoginForRaaid() throws LoginException 
 	{
+		System.out.println("\nCorrect password check for user Raaid");
 		String check = login.getDetails("TEMP");
 		assertEquals(check,"Raaid");
 	}
@@ -28,6 +29,7 @@ public class LoginTest {
 	@Test
 	public void checkCorrectLoginForTony() throws LoginException 
 	{
+		System.out.println("\nCorrect password check for user Tony");
 		String check = login.getDetails("TEMP");
 		assertEquals(check,"Tony");
 	}
@@ -35,13 +37,15 @@ public class LoginTest {
 	@Test (expected = LoginException.class)
 	public void checkIncorrectPasswordForRaaid() throws LoginException
 	{
-		String check = login.getDetails("TEMP");
+		System.out.println("\nIncorrect password check for user Raaid");
+		login.getDetails("TEMP");
 	}
 	
 	@Test (expected = LoginException.class)
 	public void checkClashingUserName() throws LoginException
 	{
-		System.out.println("Player Two Login");
+		System.out.println("\nCheck for clashing usernames");
+		System.out.println("\nFirst player logged in as Raaid");
 		login.getDetails("Raaid");
 	}
 	
