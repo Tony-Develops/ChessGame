@@ -38,7 +38,7 @@ public class Knight extends ChessPiece {
 		if ((pos.getPosX() - 2) > 0 && (pos.getPosY() - 1) > 0) {
 			positions.add(new Position(pos.getPosX() + 2, pos.getPosY() - 1));
 		}
-		return (Position[]) positions.toArray();
+		return positions.toArray(new Position[positions.size()]);
 	}
 
 

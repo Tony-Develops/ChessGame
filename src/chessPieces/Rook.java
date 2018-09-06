@@ -26,6 +26,6 @@ public class Rook extends ChessPiece {
 		for (int i = 1; (pos.getPosX() - 1) >= 0; i --) {
 			positions.add(new Position(pos.getPosX(), (pos.getPosY() - i)));
 		}
-		return (Position[]) positions.toArray();
+		return positions.toArray(new Position[positions.size()]);
 	}
 }
