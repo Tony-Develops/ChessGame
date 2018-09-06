@@ -41,5 +41,7 @@ public class Knight extends ChessPiece {
 		return positions.toArray(new Position[positions.size()]);
 	}
 
-
+	public String chessDisplay() {
+		return "[K]";
+	}
 }

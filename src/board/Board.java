@@ -7,12 +7,14 @@ import chessPieces.ChessPiece;
 import exceptions.*;
 import tools.Position;
 import tools.Type;
+import chessPieces.Rook;
 
 public class Board {
 
 	ChessPiece[][] board;
 	int sizeX;
 	int sizeY;
+	Rook rook = new Rook(new Position(1,1), Type.White);
 
 	final int SIZE_X_FLOOR = 6;
 	final int SIZE_Y_FLOOR = 4;
@@ -37,11 +39,15 @@ public class Board {
 	}
 
 	public void displayBoard() {
-		for (int i = 0; i < sizeX; i++) {
-			System.out.println("");
+		for (int i = 0; i < sizeX-1; i++) {
+			System.out.println("  ");
 			for (int j = 0; j < sizeY; j++) {
-				System.out.print("[ ]");
+				System.out.print(displayEmptyCell());
 			}
+		}
+		System.out.println("");
+		for (int k = 0; k < sizeY; k++) {
+			System.out.print(rook.chessDisplay());
 		}
 		System.out.println("");
 	}
@@ -51,7 +57,7 @@ public class Board {
 		int posY = chessPiece.getPos().getPosY();
 
 		if (posX > sizeX - 1 || posY > sizeY - 1) {
-			throw new PlaceException("Unable to place chesspiece there");
+			throw new PlaceException("Unable to place chess piece there");
 		}
 		board[posX][posY] = chessPiece;
 	}
@@ -100,5 +106,9 @@ public class Board {
 			}
 		}
 		return false;
+	}
+	
+	public String displayEmptyCell() {
+		return "[ ]";
 	}
 }
