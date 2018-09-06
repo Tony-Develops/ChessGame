@@ -3,10 +3,10 @@ package chessPieces;
 import tools.Position;
 import tools.Type;
 
-abstract public class ChessPiece {
+public abstract class ChessPiece {
 	
-	protected Position pos;
-	protected Type type;
+	private Position pos;
+	private Type type;
 	
 	public ChessPiece(Position pos, Type type) {
 		this.pos = pos;

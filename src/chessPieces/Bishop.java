@@ -1,8 +1,5 @@
 package chessPieces;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import tools.Position;
 import tools.Type;
 
@@ -13,20 +10,8 @@ public class Bishop extends ChessPiece {
 	}
 
 	public Position[] calcPositions(int boardSizeX, int boardSizeY) {
-		List<Position> positions = new ArrayList<Position>();
-		for (int i = 1; (pos.getPosX() + i) < boardSizeX && (pos.getPosY() + i) < boardSizeY; i ++) {
-			positions.add(new Position(pos.getPosX() + i, pos.getPosY() + i));
-		}
-		for (int i = 1; (pos.getPosX() + i) < boardSizeX && (pos.getPosY() - i) > 0; i ++) {
-			positions.add(new Position(pos.getPosX() + i, pos.getPosY() - i));
-		}
-		for (int i = 1; (pos.getPosX() - i) > 0 && (pos.getPosY() + i) < boardSizeY; i ++) {
-			positions.add(new Position(pos.getPosX() - i, pos.getPosY() + 1));
-		}
-		for (int i = 1; (pos.getPosX() - i) > 0 && (pos.getPosY() - i) > 0; i ++) {
-			positions.add(new Position(pos.getPosX() - i, pos.getPosY() - 1));
-		}
-		return positions.toArray(new Position[positions.size()]);
+        // This code needs to be modified to depend on type
+		return null;
 	}
 
 }
