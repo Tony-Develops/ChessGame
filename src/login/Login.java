@@ -1,88 +1,84 @@
 package login;
 import java.util.Scanner;
 
+import exceptions.LoginException;
+
 public class Login {
 
 	private boolean correctPassword;
-	private int continueCheck;
 	private int playerNumb;
-	private int turnNumb;
-	private int maxTurn1;
-	private int maxTurn2;
-	private int maxTurnAvg;
-	private String userNameInput;
-	private String passWordInput;
-	private String nameTemp;
-	private String passTemp;
+
 	private Scanner scanner = new Scanner(System.in);
 	private Player player[] = {new Player("Raaid", "hello")
 					,  new Player("Tony", "Only") };
 	
 	public void run()
 	{
-		getPlayerOne();		
-		getPlayerTwo();
+		boolean exit = false;
+		int maxTurn1 = 0;
+		int maxTurn2 = 0;
+		int maxTurnAvg = 0;
 		
-		maxTurnAvg = (maxTurn1 + maxTurn2) / 2;
-		System.out.println("Amount of turns: " + maxTurnAvg);
+		
+		
+		while (!exit) 
+		{			
+			try 
+			{
+				String inputTemp = "";
+				System.out.println("Player One Login:");
+				inputTemp = getDetails("TEMP");
+				System.out.println("Player Two Login:");
+				getDetails(inputTemp);
+				exit = true;
+			}
+			catch (LoginException e) 
+			{
+				System.out.println(e.getMessage());
+			} 
+		}
 	}
 	
-	private int getDetails(String string)
-	{
-		System.out.println(string);
-		
-			System.out.println("Username: ");
+	private String getDetails(String inputTemp) throws LoginException
+	{	
+		String userNameInput;
+		String passWordInput;
+		System.out.println("Username: ");
 			userNameInput = "";
 			userNameInput = scanner.nextLine();
-			playerNumb = checkUserName();
-			if (playerNumb == -1) {
-				System.out.println("USER DOES NOT EXIST\n");
-				return -1;
-			} else {
-				System.out.println("Password: ");
-				passWordInput = scanner.nextLine();
-				correctPassword = checkPassWord(playerNumb);
-				if (correctPassword == true) {
-					System.out.println("Amount of turns:");
-					turnNumb = scanner.nextInt();
-					return turnNumb;
-				} else { 
-					
-					System.out.println("INCORRECT PASSWORD");
-					return -1;
-				}
-			} 
+			if (userNameInput == inputTemp)
+			{
+				throw new LoginException("USER ALREADY LOGGED IN\n");
+			}
 			
-		
-		
-		
-		
-	}
-	
-	public void getPlayerOne()
-	{
-		continueCheck = -1;
-		while (continueCheck == -1)
-		{
-			maxTurn1 = getDetails("PLAYER ONE LOGIN\n");
-			continueCheck = maxTurn1;
-		}
-	}
-	public void getPlayerTwo()
-	{
-		continueCheck = -1;
-		while (continueCheck == -1)
-		{
-			maxTurn2 = getDetails("PLAYER TWO LOGIN\n");
-			continueCheck = maxTurn2;
-		}
+			playerNumb = checkUserName(userNameInput);
+			if (playerNumb == -1) 
+			{
+				throw new LoginException("USER DOES NOT EXIST\n");
+			} 
+			else
+			{
+				System.out.println("Password: ");
+					passWordInput = scanner.nextLine();
+					correctPassword = checkPassWord(playerNumb, passWordInput);
+				
+				if (correctPassword == true) 
+				{
+					return userNameInput;
+				} 
+				else
+				{ 					
+					throw new LoginException("INCORRECT PASSWORD\n");
+				}
+			} 		
 	}
 	
 	
 	
-	private int checkUserName()
+	
+	private int checkUserName(String userNameInput)
 	{
-		
+		String nameTemp;
 		for(int i = 0; i < player.length; i++)
 		{			
 			nameTemp = player[i].getUserName();
@@ -94,8 +90,9 @@ public class Login {
 		return -1;
 	}
 	
-	private boolean checkPassWord(int playerNumb)
+	private boolean checkPassWord(int playerNumb, String passWordInput)
 	{
+		String passTemp;
 		passTemp = player[playerNumb].getPassWord();
 		if (passWordInput.equals(passTemp)  )
 			{
