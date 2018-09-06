@@ -8,7 +8,7 @@ import exceptions.BoardException;
 public class Driver {
 
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws Throwable
 	{
 		Login login = new Login();
 		login.playerLogin();
