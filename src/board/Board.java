@@ -13,15 +13,17 @@ public class Board {
 	int sizeX;
 	int sizeY;
 
-	final int SIZE_X_LIMIT = 6;
-	final int SIZE_Y_LIMIT = 4;
+	final int SIZE_X_FLOOR = 6;
+	final int SIZE_Y_FLOOR = 4;
+	final int SIZE_X_CEILING = 10;
+	final int SIZE_Y_CEILING = 8;
 	
 	public Board(int sizeX, int sizeY) throws BoardException
 	{
-		if(sizeX < SIZE_X_LIMIT || sizeY < SIZE_Y_LIMIT)
+		if(sizeX < SIZE_X_FLOOR || sizeY < SIZE_Y_FLOOR)
 		{
 			throw new BoardException("Size must be of dimension 6x4 or greater!");
-		} else if (sizeX > 10 || sizeY > 8) {
+		} else if (sizeX > SIZE_X_CEILING || SIZE_Y_CEILING > 8) {
 			throw new BoardException("Board size must not be greater than a dimension of 10x8!");
 		} else {
 			this.sizeX = sizeX;
