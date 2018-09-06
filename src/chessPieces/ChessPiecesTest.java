@@ -47,21 +47,21 @@ public class ChessPiecesTest {
 	@Test
 	public void testChessPieceMaxX() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(6,1), Type.White);
+		Rook rook = new Rook(new Position(5,1), Type.White);
 		board.place(rook);
 	}
 	
 	@Test
 	public void testChessPieceMaxY() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(1,4), Type.White);
+		Rook rook = new Rook(new Position(1,3), Type.White);
 		board.place(rook);
 	}
 	
 	@Test
 	public void testChessPieceMax() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(6,4), Type.White);
+		Rook rook = new Rook(new Position(5,3), Type.White);
 		board.place(rook);
 	}
 	
@@ -87,13 +87,6 @@ public class ChessPiecesTest {
 	}
 	
 	@Test(expected = PlaceException.class)
-	public void testChessPieceSmallX() throws Throwable
-	{
-		Rook rook = new Rook(new Position(-1,1), Type.White);
-		board.place(rook);
-	}
-	
-	@Test(expected = PlaceException.class)
 	public void testChessPieceLargeX() throws Throwable
 	{
 		Rook rook = new Rook(new Position(7,1), Type.White);
@@ -101,23 +94,9 @@ public class ChessPiecesTest {
 	}
 	
 	@Test(expected = PlaceException.class)
-	public void testChessPieceSmallY() throws Throwable
-	{
-		Rook rook = new Rook(new Position(1,-1), Type.White);
-		board.place(rook);
-	}
-	
-	@Test(expected = PlaceException.class)
 	public void testChessPieceLargeY() throws Throwable
 	{
 		Rook rook = new Rook(new Position(1,5), Type.White);
-		board.place(rook);
-	}
-	
-	@Test(expected = PlaceException.class)
-	public void testChessPieceSmall() throws Throwable
-	{
-		Rook rook = new Rook(new Position(-1,-1), Type.White);
 		board.place(rook);
 	}
 	
