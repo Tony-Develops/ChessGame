@@ -29,10 +29,10 @@ abstract public class ChessPiece {
 	
 	protected Boolean checkPosition(ChessPiece[][] board, Position position) {
 		if (board[position.getPosY()][position.getPosX()] == null) {
-			return true;
+			return false;
 		}
 		else {
-			return false;
+			return true;
 		}
 	}
 }

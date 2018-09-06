@@ -10,10 +10,12 @@ public class Board {
 	ChessPiece[][] board;
 	int sizeX;
 	int sizeY;
+	final int SIZE_X_LIMIT = 6;
+	final int SIZE_Y_LIMIT = 4;
 	
 	public Board(int sizeX, int sizeY) throws BoardException
 	{
-		if(sizeX < 6 || sizeY < 4)
+		if(sizeX < SIZE_X_LIMIT || sizeY < SIZE_Y_LIMIT)
 		{
 			throw new BoardException("Size must be of dimension 6x4 or greater!");
 		}
@@ -30,14 +32,14 @@ public class Board {
 		//To do
 	}
 	
-	public void place(ChessPiece chessPiece) throws ChessPieceException
+	public void place(ChessPiece chessPiece) throws PlaceException
 	{
 		int posX = chessPiece.getPos().getPosX();
 		int posY = chessPiece.getPos().getPosY();
 		
 		if(posX > sizeX - 1 || posY > sizeY - 1)
 		{
-			throw new ChessPieceException("Unable to place chesspiece there");
+			throw new PlaceException("Unable to place chesspiece there");
 		}
 		board[posX][posY] = chessPiece;
 	}
@@ -50,7 +52,7 @@ public class Board {
 		//Checks to see if the selected chess piece exist
 		if(chessPiece == null)
 		{
-			throw new ChessPieceException("Chess piece doesnt exist");
+			throw new MovementException("Chess piece doesnt exist");
 		}
 		
 		//Checks to see if its the current player's piece
@@ -82,7 +84,7 @@ public class Board {
 	
 	private boolean checkMovement(ChessPiece chessPiece, Position destPos)
 	{
-		//To do
+		//Checks for the possible positions for the chess piece
 		Position[] possiblePos = chessPiece.calcPositions(board);
 		for(int i = 0; i < possiblePos.length; i++)
 		{
