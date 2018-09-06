@@ -107,6 +107,10 @@ public class Board {
 		return false;
 	}
 	
+	public ChessPiece[][] getBoard() {
+		return board;
+	}
+	
 	public String displayEmptyCell() {
 		return "[ ]";
 	}
