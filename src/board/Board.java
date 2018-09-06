@@ -33,16 +33,20 @@ public class Board {
 		}
 	}
 
-	public void displayBoard() {
-		for (int i = 0; i < sizeX-1; i++) {
+	public void displayBoard() 
+	{
+		for (int y = 0; y < sizeY; y++) {
 			System.out.println("  ");
-			for (int j = 0; j < sizeY; j++) {
-				System.out.print(displayEmptyCell());
+			for (int x = 0; x < sizeX; x++) {
+				if(board[x][y] == null)
+				{
+					System.out.print("[    ]");
+				}
+				else
+				{
+					System.out.print(board[x][y].chessDisplay());
+				}
 			}
-		}
-		System.out.println("");
-		for (int k = 0; k < sizeY; k++) {
-			System.out.print(rook.chessDisplay());
 		}
 		System.out.println("");
 	}
@@ -101,6 +105,10 @@ public class Board {
 			}
 		}
 		return false;
+	}
+	
+	public ChessPiece[][] getBoard() {
+		return board;
 	}
 	
 	public String displayEmptyCell() {

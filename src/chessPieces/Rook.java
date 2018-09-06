@@ -15,28 +15,28 @@ public class Rook extends ChessPiece {
 	public Position[] calcPositions(ChessPiece[][] board) {
 		List<Position> positions = new ArrayList<Position>();
 		Position currentPosition;
-		for (int i = 1; (pos.getPosX() + i) < board.length; i++) {
+		for (int i = 1; (pos.getPosX() + i) < board.length && i <=2; i++) {
 			currentPosition = new Position(pos.getPosX() + i, pos.getPosY());
 			positions.add(currentPosition);
 			if (checkPosition(board, currentPosition) == true) {
 				break;
 			}
 		}
-		for (int i = 1; (pos.getPosX() - 1) >= 0; i --) {
+		for (int i = 1; (pos.getPosX() - 1) >= 0 && i <= 2; i --) {
 			currentPosition = new Position((pos.getPosX() - i), pos.getPosY());
 			positions.add(currentPosition);
 			if (checkPosition(board, currentPosition) == true) {
 				break;
 			}
 		}
-		for (int i = 1; (pos.getPosY() + i) < board[0].length; i++) {
+		for (int i = 1; (pos.getPosY() + i) < board[0].length && i <= 2; i++) {
 			currentPosition = new Position(  pos.getPosX(), pos.getPosY() + i);
 			positions.add(currentPosition);
 			if (checkPosition(board, currentPosition) == true) {
 				break;
 			}
 		}
-		for (int i = 1; (pos.getPosX() - 1) >= 0; i --) {
+		for (int i = 1; (pos.getPosX() - 1) >= 0 && i <=2; i --) {
 			currentPosition = new Position(pos.getPosX(), (pos.getPosY() - i));
 			positions.add(currentPosition);
 			if (checkPosition(board, currentPosition) == true) {
@@ -47,6 +47,13 @@ public class Rook extends ChessPiece {
 	}
 	
 	public String chessDisplay() {
-		return "[R]";
+		if(type == Type.Black)
+		{
+			return "[ BR ]";
+		}
+		else
+		{
+			return "[ WR ]";
+		}
 	}
 }

@@ -42,6 +42,13 @@ public class Knight extends ChessPiece {
 	}
 
 	public String chessDisplay() {
-		return "[K]";
+		if(type == Type.Black)
+		{
+			return "[ BK ]";
+		}
+		else
+		{
+			return "[ WK ]";
+		}
 	}
 }
