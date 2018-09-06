@@ -12,6 +12,8 @@ public class Driver {
 		
 		Login login = new Login();
 		login.run();
+		
+		Board
 
 	}
 
