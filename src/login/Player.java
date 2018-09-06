@@ -1,7 +1,7 @@
 package login;
 
 public class Player {
-<<<<<<< Updated upstream
+
 
 	private String userName;
 	private String passWord;
@@ -25,7 +25,5 @@ public class Player {
 		
 		return passWord;
 	}
-=======
-	
->>>>>>> Stashed changes
+
 }
