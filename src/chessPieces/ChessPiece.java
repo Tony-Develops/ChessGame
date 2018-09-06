@@ -20,6 +20,7 @@ abstract public class ChessPiece {
 	public abstract Position[] calcPositions(ChessPiece[][] board);
 	
 	public Position getPos() {
+
 		return pos;
 	}
 	

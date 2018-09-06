@@ -47,7 +47,14 @@ public class Bishop extends ChessPiece {
 	}
 	
 	public String chessDisplay() {
-		return "[B]";
+		if(type == Type.Black)
+		{
+			return "[ BB ]";
+		}
+		else
+		{
+			return "[ WB ]";
+		}
 	}
 
 }

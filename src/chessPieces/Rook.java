@@ -47,6 +47,13 @@ public class Rook extends ChessPiece {
 	}
 	
 	public String chessDisplay() {
-		return "[R]";
+		if(type == Type.Black)
+		{
+			return "[ BR ]";
+		}
+		else
+		{
+			return "[ WR ]";
+		}
 	}
 }
