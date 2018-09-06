@@ -3,7 +3,9 @@ package board;
 import org.junit.Test;
 import java.util.Scanner;
 
+import chessPieces.Bishop;
 import chessPieces.ChessPiece;
+import chessPieces.Knight;
 import exceptions.*;
 import tools.Position;
 import tools.Type;
@@ -105,6 +107,23 @@ public class Board {
 			}
 		}
 		return false;
+	}
+	
+	public void boardInit() throws PlaceException
+	{
+		place(new Rook(new Position(0,0), Type.White));
+		place(new Bishop(new Position(1,0), Type.White));
+		place(new Knight(new Position(2,0), Type.White));
+		place(new Knight(new Position(3,0), Type.White));
+		place(new Bishop(new Position(4,0), Type.White));
+		place(new Rook(new Position(5,0), Type.White));
+		
+		place(new Rook(new Position(0,3), Type.Black));
+		place(new Bishop(new Position(1,3), Type.Black));
+		place(new Knight(new Position(2,3), Type.Black));
+		place(new Knight(new Position(3,3), Type.Black));
+		place(new Bishop(new Position(4,3), Type.Black));
+		place(new Rook(new Position(5,3), Type.Black));
 	}
 	
 	public ChessPiece[][] getBoard() {

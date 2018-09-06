@@ -157,26 +157,14 @@ public class BoardTest {
 	@Test
 	public void testingSetUp() throws Throwable
 	{
-		board.place(new Rook(new Position(0,0), Type.White));
-        board.place(new Bishop(new Position(1,0), Type.White));
-        board.place(new Knight(new Position(2,0), Type.White));
-        board.place(new Knight(new Position(3,0), Type.White));
-        board.place(new Bishop(new Position(4,0), Type.White));
-        board.place(new Rook(new Position(5,0), Type.White));
-
-        board.place(new Rook(new Position(0,3), Type.Black));
-        board.place(new Bishop(new Position(1,3), Type.Black));
-        board.place(new Knight(new Position(2,3), Type.Black));
-        board.place(new Knight(new Position(3,3), Type.Black));
-        board.place(new Bishop(new Position(4,3), Type.Black));
-        board.place(new Rook(new Position(5,3), Type.Black));
+		board.boardInit();
 	}
 	
 	@After
 	public void testingDisplay() throws Throwable
 	{
-		System.out.println("After");
 		board.displayBoard();
+		System.out.println("---------------------");
 	}
 	
 

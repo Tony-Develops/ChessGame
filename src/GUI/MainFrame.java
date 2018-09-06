@@ -13,7 +13,7 @@ public class MainFrame extends JFrame {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-        JFrame frame = new JFrame("Play the colour chess");
+        JFrame frame = new JFrame("Play the best chess game");
         frame.setSize(600,800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
