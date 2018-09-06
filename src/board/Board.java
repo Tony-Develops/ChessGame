@@ -21,12 +21,7 @@ public class Board {
 	final int SIZE_X_CEILING = 10;
 	final int SIZE_Y_CEILING = 8;
 
-	public Board() throws BoardException {
-		Scanner in = new Scanner(System.in);
-		System.out.printf("Please enter the width of the board:  ");
-		int sizeX = in.nextInt();
-		System.out.printf("Please enter the height of the board:  ");
-		int sizeY = in.nextInt();
+	public Board(int sizeX, int sizeY) throws BoardException {
 		if (sizeX < SIZE_X_FLOOR || sizeY < SIZE_Y_FLOOR) {
 			throw new BoardException("Size must be of dimension 6x4 or greater!");
 		} else if (sizeX > SIZE_X_CEILING || SIZE_Y_CEILING > 8) {

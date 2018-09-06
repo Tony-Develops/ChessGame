@@ -18,7 +18,7 @@ public class BoardTest {
 	@Before
 	public void setUp() throws BoardException
 	{
-		board = new Board(7,7);
+		board = new Board(6,4);
 	}
 	
 	//Board should throw exception when size of board is less than 6x4
@@ -78,6 +78,12 @@ public class BoardTest {
 		chessPieceReturn = board.move(new Position(0,0), new Position(2,2), Type.White);	
 		assertEquals(chessPieceReturn, chessPieceExpect);
 		
+	}
+	
+	@Test
+	public void display() throws Throwable
+	{
+		board.displayBoard();
 	}
 	
 

@@ -28,7 +28,7 @@ abstract public class ChessPiece {
 	}
 	
 	protected Boolean checkPosition(ChessPiece[][] board, Position position) {
-		if (board[position.getPosY()][position.getPosX()] == null) {
+		if (board[position.getPosX()][position.getPosY()] == null) {
 			return false;
 		}
 		else {
