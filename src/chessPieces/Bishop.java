@@ -12,19 +12,36 @@ public class Bishop extends ChessPiece {
 		super(pos, type);
 	}
 
-	public Position[] calcPositions(int boardSizeX, int boardSizeY) {
+	public Position[] calcPositions(ChessPiece[][] board) {
 		List<Position> positions = new ArrayList<Position>();
-		for (int i = 1; (pos.getPosX() + i) < boardSizeX && (pos.getPosY() + i) < boardSizeY; i ++) {
-			positions.add(new Position(pos.getPosX() + i, pos.getPosY() + i));
+		Position currentPosition;
+		for (int i = 1; (pos.getPosX() + i) < board.length && (pos.getPosY() + i) < board[0].length; i ++) {
+			currentPosition = new Position(pos.getPosX() + i, pos.getPosY() + i);
+			positions.add(currentPosition);
+			if (checkPosition(board, currentPosition) == true) {
+				break;
+			}
 		}
-		for (int i = 1; (pos.getPosX() + i) < boardSizeX && (pos.getPosY() - i) > 0; i ++) {
-			positions.add(new Position(pos.getPosX() + i, pos.getPosY() - i));
+		for (int i = 1; (pos.getPosX() + i) < board.length && (pos.getPosY() - i) > 0; i ++) {
+			currentPosition = new Position(pos.getPosX() + i, pos.getPosY() - i);
+			positions.add(currentPosition);
+			if (checkPosition(board, currentPosition) == true) {
+				break;
+			}
 		}
-		for (int i = 1; (pos.getPosX() - i) > 0 && (pos.getPosY() + i) < boardSizeY; i ++) {
-			positions.add(new Position(pos.getPosX() - i, pos.getPosY() + 1));
+		for (int i = 1; (pos.getPosX() - i) > 0 && (pos.getPosY() + i) < board[0].length; i ++) {
+			currentPosition = new Position(pos.getPosX() - i, pos.getPosY() + 1);
+			positions.add(currentPosition);
+			if (checkPosition(board, currentPosition) == true) {
+				break;
+			}
 		}
 		for (int i = 1; (pos.getPosX() - i) > 0 && (pos.getPosY() - i) > 0; i ++) {
-			positions.add(new Position(pos.getPosX() - i, pos.getPosY() - 1));
+			currentPosition = new Position(pos.getPosX() - i, pos.getPosY() - 1);
+			positions.add(currentPosition);
+			if (checkPosition(board, currentPosition) == true) {
+				break;
+			}
 		}
 		return positions.toArray(new Position[positions.size()]);
 	}

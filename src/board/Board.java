@@ -83,7 +83,7 @@ public class Board {
 	private boolean checkMovement(ChessPiece chessPiece, Position destPos)
 	{
 		//To do
-		Position[] possiblePos = chessPiece.calcPositions(sizeX, sizeY);
+		Position[] possiblePos = chessPiece.calcPositions(board);
 		for(int i = 0; i < possiblePos.length; i++)
 		{
 			if(destPos.getPosX() == possiblePos[i].getPosX() && destPos.getPosY() == possiblePos[i].getPosY())

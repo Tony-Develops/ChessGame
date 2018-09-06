@@ -12,27 +12,27 @@ public class Knight extends ChessPiece {
 		super(pos, type);
 	}
 
-	public Position[] calcPositions(int boardSizeX, int boardSizeY) {
+	public Position[] calcPositions(ChessPiece[][] board) {
 		List<Position> positions = new ArrayList<Position>();
-		if ((pos.getPosY() + 2) < boardSizeY && (pos.getPosX() + 1) < boardSizeX) {
+		if ((pos.getPosY() + 2) < board[0].length && (pos.getPosX() + 1) < board.length) {
 			positions.add(new Position(pos.getPosX() + 1, pos.getPosY() + 2));
 		}
-		if ((pos.getPosY() + 2) < boardSizeY && (pos.getPosX() - 1) > 0) {
+		if ((pos.getPosY() + 2) < board[0].length && (pos.getPosX() - 1) > 0) {
 			positions.add(new Position(pos.getPosX() - 1, pos.getPosY() + 2));
 		}
-		if ((pos.getPosY() - 2) > 0 && (pos.getPosX() + 1) < boardSizeX) {
+		if ((pos.getPosY() - 2) > 0 && (pos.getPosX() + 1) < board.length) {
 			positions.add(new Position(pos.getPosX() + 1, pos.getPosY() + 2));
 		}
 		if ((pos.getPosY() - 2) > 0 && (pos.getPosX() - 1) > 0) {
 			positions.add(new Position(pos.getPosX() - 1, pos.getPosY() + 2));
 		}
-		if ((pos.getPosX() + 2) < boardSizeX && (pos.getPosY() + 1) < boardSizeY) {
+		if ((pos.getPosX() + 2) < board.length && (pos.getPosY() + 1) < board[0].length) {
 			positions.add(new Position(pos.getPosX() + 2, pos.getPosY() + 1));
 		}
-		if ((pos.getPosX() + 2) < boardSizeX && (pos.getPosY() - 1) > 0) {
+		if ((pos.getPosX() + 2) < board.length && (pos.getPosY() - 1) > 0) {
 			positions.add(new Position(pos.getPosX() + 2, pos.getPosY() - 1));
 		}
-		if ((pos.getPosX() - 2) > 0 && (pos.getPosY() + 1) < boardSizeY) {
+		if ((pos.getPosX() - 2) > 0 && (pos.getPosY() + 1) < board[0].length) {
 			positions.add(new Position(pos.getPosX() + 2, pos.getPosY() + 1));
 		}
 		if ((pos.getPosX() - 2) > 0 && (pos.getPosY() - 1) > 0) {

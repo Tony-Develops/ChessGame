@@ -12,19 +12,36 @@ public class Rook extends ChessPiece {
 		super(pos, type);
 	}
 
-	public Position[] calcPositions(int boardSizeX, int boardSizeY) {
+	public Position[] calcPositions(ChessPiece[][] board) {
 		List<Position> positions = new ArrayList<Position>();
-		for (int i = 1; (pos.getPosX() + i) < boardSizeX; i++) {
-			positions.add(new Position(pos.getPosX() + i, pos.getPosY()));
+		Position currentPosition;
+		for (int i = 1; (pos.getPosX() + i) < board.length; i++) {
+			currentPosition = new Position(pos.getPosX() + i, pos.getPosY());
+			positions.add(currentPosition);
+			if (checkPosition(board, currentPosition) == true) {
+				break;
+			}
 		}
 		for (int i = 1; (pos.getPosX() - 1) >= 0; i --) {
-			positions.add(new Position((pos.getPosX() - i), pos.getPosY()));
+			currentPosition = new Position((pos.getPosX() - i), pos.getPosY());
+			positions.add(currentPosition);
+			if (checkPosition(board, currentPosition) == true) {
+				break;
+			}
 		}
-		for (int i = 1; (pos.getPosY() + i) < boardSizeY; i++) {
-			positions.add(new Position(  pos.getPosX(), pos.getPosY() + i));
+		for (int i = 1; (pos.getPosY() + i) < board[0].length; i++) {
+			currentPosition = new Position(  pos.getPosX(), pos.getPosY() + i);
+			positions.add(currentPosition);
+			if (checkPosition(board, currentPosition) == true) {
+				break;
+			}
 		}
 		for (int i = 1; (pos.getPosX() - 1) >= 0; i --) {
-			positions.add(new Position(pos.getPosX(), (pos.getPosY() - i)));
+			currentPosition = new Position(pos.getPosX(), (pos.getPosY() - i));
+			positions.add(currentPosition);
+			if (checkPosition(board, currentPosition) == true) {
+				break;
+			}
 		}
 		return positions.toArray(new Position[positions.size()]);
 	}

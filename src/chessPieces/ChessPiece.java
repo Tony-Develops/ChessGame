@@ -17,7 +17,7 @@ abstract public class ChessPiece {
 		pos = destPos;
 	}
 	
-	public abstract Position[] calcPositions(int boardSizeX, int boardSizeY);
+	public abstract Position[] calcPositions(ChessPiece[][] board);
 	
 	public Position getPos() {
 		return pos;
@@ -25,5 +25,14 @@ abstract public class ChessPiece {
 	
 	public Type getType() {
 		return type;
+	}
+	
+	protected Boolean checkPosition(ChessPiece[][] board, Position position) {
+		if (board[position.getPosY()][position.getPosX()] == null) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }
