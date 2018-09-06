@@ -35,4 +35,8 @@ abstract public class ChessPiece {
 			return true;
 		}
 	}
+	
+	public String chessDisplay() {
+		return "";
+	}
 }
