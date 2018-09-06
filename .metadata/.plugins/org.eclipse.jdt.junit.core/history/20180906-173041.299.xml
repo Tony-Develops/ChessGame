@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun board.BoardTest.moveTest" project="ChessLikeGame" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="moveTest" classname="board.BoardTest" incomplete="true"/>
+</testrun>
