@@ -27,8 +27,6 @@ public class ChessGame {
 		{
 			System.out.println(e.getMessage());
 		}
-		scanner.close();
-		
 	}
 	
 	public void PlayGame() throws Throwable

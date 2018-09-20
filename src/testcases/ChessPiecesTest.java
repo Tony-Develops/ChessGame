@@ -1,8 +1,11 @@
-package chessPieces;
+package testcases;
 
 import org.junit.Test;
 
 import board.*;
+import chessPieces.Bishop;
+import chessPieces.Knight;
+import chessPieces.Rook;
 import exceptions.*;
 import tools.*;
 

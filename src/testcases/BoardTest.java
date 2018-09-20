@@ -1,7 +1,8 @@
-package board;
+package testcases;
 
 import org.junit.Test;
 
+import board.Board;
 import chessPieces.*;
 import exceptions.*;
 import tools.*;

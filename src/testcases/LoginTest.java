@@ -1,4 +1,4 @@
-package login;
+package testcases;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,7 @@ import org.junit.Test;
 
 
 import exceptions.LoginException;
+import login.Login;
 
 public class LoginTest {
 

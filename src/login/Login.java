@@ -31,7 +31,7 @@ public class Login {
         }
 	}
 	
-	protected String getDetails(String inputTemp) throws LoginException
+	public String getDetails(String inputTemp) throws LoginException
 	{	
 		String userNameInput;
 		String passWordInput;
