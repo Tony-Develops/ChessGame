@@ -5,7 +5,6 @@ public class Player {
 
 	private String userName;
 	private String passWord;
-	private boolean isLoggedIn;
 	
 	public Player(String userName, String passWord)
 	{

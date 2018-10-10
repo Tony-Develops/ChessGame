@@ -11,7 +11,7 @@ public class Driver {
 	public static void main(String[] args) throws Throwable
 	{
 		Login login = new Login();
-		login.playerLogin();
+		login.menuSystem();
 		
 		ChessGame chessGame = new ChessGame();
 		chessGame.PlayGame();
