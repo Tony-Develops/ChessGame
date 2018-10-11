@@ -1,8 +1,5 @@
 package board;
 
-import org.junit.Test;
-import java.util.Scanner;
-
 import chessPieces.Bishop;
 import chessPieces.ChessPiece;
 import chessPieces.Knight;

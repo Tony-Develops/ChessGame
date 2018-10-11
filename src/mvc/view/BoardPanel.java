@@ -14,12 +14,13 @@ import javax.swing.SwingConstants;
 
 public class BoardPanel {
 	private JPanel chessBoard;
-	private JButton[][] boardSize = new JButton[6][6];
-	private static final String COLS = "ABCDEF";
+	int boardLen = 6;
+	private JButton[][] boardSize = new JButton[boardLen][boardLen];
+	private static final String COLS = "ABCDEFGHIJKLMNOP";
 
 	public BoardPanel() {
 
-		chessBoard = new JPanel(new GridLayout(0, 7));
+		chessBoard = new JPanel(new GridLayout(0, boardLen+1));
 		for (int i = 0; i < boardSize.length; i++) {
 			for (int j = 0; j < boardSize[i].length; j++) {
 				JButton chessPiece = new JButton();
@@ -40,14 +41,14 @@ public class BoardPanel {
 
 		chessBoard.add(new JLabel(""));
 
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < boardLen; i++) {
 			chessBoard.add(new JLabel(COLS.substring(i, i + 1), SwingConstants.CENTER));
 		}
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
+		for (int i = 0; i < boardLen; i++) {
+			for (int j = 0; j < boardLen; j++) {
 				switch (j) {
 				case 0:
-					chessBoard.add(new JLabel("" + (7 - (i + 1)), SwingConstants.CENTER));
+					chessBoard.add(new JLabel("" + ((boardLen+1)- (i + 1)), SwingConstants.CENTER));
 				default:
 					chessBoard.add(boardSize[j][i]);
 				}

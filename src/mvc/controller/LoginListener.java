@@ -2,7 +2,6 @@ package mvc.controller;
 
 import java.awt.event.ActionEvent;
 import java.util.Collection;
-import java.util.Iterator;
 
 import javax.swing.JOptionPane;
 
@@ -11,7 +10,7 @@ import game.SimplePlayer;
 import mvc.view.MainFrame;
 
 public class LoginListener extends MyActionListener  {
-	private String playerID, playerName, playerPassword;
+	private String playerID, playerPassword;
 	private Collection<SimplePlayer> players = GameMenu.getAllPlayers();
 
 	public LoginListener(GameMenu gameMenu, MainFrame mainFrame) {
