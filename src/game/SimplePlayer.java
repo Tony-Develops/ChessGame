@@ -1,4 +1,4 @@
-package login;
+package game;
 
 public class SimplePlayer {
 

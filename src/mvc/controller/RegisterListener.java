@@ -5,8 +5,8 @@ import java.util.Collection;
 
 import javax.swing.JOptionPane;
 
-import login.GameMenu;
-import login.SimplePlayer;
+import game.GameMenu;
+import game.SimplePlayer;
 import mvc.view.MainFrame;
 
 public class RegisterListener extends MyActionListener {
@@ -45,12 +45,6 @@ public class RegisterListener extends MyActionListener {
 			// Create a new player and then add player to the the game
 			SimplePlayer addPlayer = new SimplePlayer(playerID, playerName, playerPassword);
 			gameMenu.addPlayer(addPlayer);
-
-			// Recalculates existing players for combo-box
-//			toolBar.erasePlayers();
-//			for (SimplePlayer player : players) {
-//				toolBar.addPlayerToList(player);
-//			}
 
 			// Updates status bar
 			statusBar.setMiddleLabel(String.format("Added player \" %s \"", playerName));

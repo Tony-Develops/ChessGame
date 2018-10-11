@@ -1,7 +1,7 @@
 package client;
 
 import game.ChessGame;
-import login.GameMenu;
+import game.GameMenu;
 import mvc.view.MainFrame;
 
 public class Driver {

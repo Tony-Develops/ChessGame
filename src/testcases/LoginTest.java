@@ -7,7 +7,7 @@ import org.junit.Test;
 
 
 import exceptions.LoginException;
-import login.GameMenu;
+import game.GameMenu;
 
 public class LoginTest {
 

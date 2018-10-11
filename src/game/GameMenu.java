@@ -1,4 +1,4 @@
-package login;
+package game;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 import exceptions.LoginException;
-import login.SimplePlayer;
+import game.SimplePlayer;
 
 public class GameMenu {
 
@@ -63,9 +63,17 @@ public class GameMenu {
 
 		System.out.println("Enter your password:");
 		tempPass = scanner.nextLine();
-
-		players.add(new SimplePlayer(tempId, tempName, tempPass));
+		
+		SimplePlayer player = new SimplePlayer(tempId, tempName, tempPass);
+		players.add(player);
+		System.out.println("New player:" + player.getPlayerName() + " added");
+		System.out.println(":" + player.getPlayerName() + " added");
 	}
+	
+	public void printPlayers() {
+	}
+	
+	
 
 	public void displayUsers() throws LoginException {
 		System.out.println("Users:");
