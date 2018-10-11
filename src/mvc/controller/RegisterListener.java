@@ -12,7 +12,6 @@ import mvc.view.MainFrame;
 public class RegisterListener extends MyActionListener {
 	private String playerID, playerName, playerPassword;
 	private Collection<SimplePlayer> players = GameMenu.getAllPlayers();
-	private GameMenu gameMenu;
 
 	public RegisterListener(GameMenu gameMenu, MainFrame frame) {
 		super(frame);
@@ -44,11 +43,11 @@ public class RegisterListener extends MyActionListener {
 
 			// Create a new player and then add player to the the game
 			SimplePlayer addPlayer = new SimplePlayer(playerID, playerName, playerPassword);
-			gameMenu.addPlayer(addPlayer);
+//			gameMenu.addPlayer(addPlayer);
 
 			// Updates status bar
-			statusBar.setMiddleLabel(String.format("Added player \" %s \"", playerName));
-			statusBar.setRightLabel(addPlayer.toString());
+//			statusBar.setMiddleLabel(String.format("Added player \" %s \"", playerName));
+//			statusBar.setRightLabel(addPlayer.toString());
 
 			mainFrame.displayMessage(playerName + " has been added to the game.");
 

@@ -9,6 +9,7 @@ import javax.swing.JMenuItem;
 import game.GameMenu;
 import mvc.controller.RegisterListener;
 import mvc.controller.ExitListener;
+import mvc.controller.LoginListener;
 
 @SuppressWarnings("serial")
 public class MenuBar extends JMenuBar
@@ -24,6 +25,7 @@ public class MenuBar extends JMenuBar
 		
 		menuReg = new RegisterListener(gameMenu, frame);
 		menuExit = new ExitListener(frame);
+		menuLogin = new LoginListener(gameMenu, frame);
 		
 		login = new JMenuItem("Login");
 		login.addActionListener(menuLogin);

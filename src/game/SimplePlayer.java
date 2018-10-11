@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Iterator;
+
 public class SimplePlayer {
 
 	private String playerId;
@@ -35,7 +37,6 @@ public class SimplePlayer {
 	public void setPlayerPassword(String playerPassword) {
 		this.playerPassword = playerPassword;
 	}
-
 
 
 }

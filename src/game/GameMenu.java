@@ -67,11 +67,16 @@ public class GameMenu {
 		SimplePlayer player = new SimplePlayer(tempId, tempName, tempPass);
 		players.add(player);
 		System.out.println("New player:" + player.getPlayerName() + " added");
-		System.out.println(":" + player.getPlayerName() + " added");
+		printPlayers();
 	}
 	
 	public void printPlayers() {
-	}
+		System.out.println("We have: "+players.size()+" in total!");
+		Iterator<SimplePlayer> iter = players.iterator();
+		while (iter.hasNext()) {
+			SimplePlayer player = iter.next();
+			System.out.println("PlayerID: "+player.getplayerId()+" ,Name: "+ player.getPlayerName());
+		}	}
 	
 	
 
@@ -86,21 +91,7 @@ public class GameMenu {
 
 	}
 
-	public void playerLogin() throws LoginException {
-		String inputTemp = "";
-
-		for (int i = 0; i < 2; i++) {
-			try {
-				System.out.println("Player " + (i + 1) + " login:");
-				inputTemp = playerLogin(inputTemp);
-			} catch (LoginException e) {
-				System.out.println(e.getMessage());
-				i--;
-			}
-		}
-	}
-
-	public String playerLogin(String inputTemp) throws LoginException {
+	public String playerLogin() throws LoginException {
 		String inputID, playerID;
 		String passwordInput;
 		String correctPassword;
@@ -109,9 +100,6 @@ public class GameMenu {
 		inputID = null;
 		while (inputID == null) {
 			inputID = scanner.nextLine();
-		}
-		if (inputID.equals(inputTemp)) {
-			throw new LoginException("\nUSER ALREADY LOGGED IN\n");
 		}
 
 		Iterator<SimplePlayer> iter = players.iterator();
