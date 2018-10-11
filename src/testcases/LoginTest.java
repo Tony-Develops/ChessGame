@@ -7,23 +7,23 @@ import org.junit.Test;
 
 
 import exceptions.LoginException;
-import login.Login;
+import login.GameMenu;
 
 public class LoginTest {
 
-	private Login login;
+	private GameMenu login;
 	
 	@Before
 	public void setUp() throws LoginException 
 	{
-		login = new Login();
+		login = new GameMenu();
 	}
 
 	@Test 
 	public void checkCorrectLoginForRaaid() throws LoginException 
 	{
 		System.out.println("\nCorrect password check for user Raaid");
-		String check = login.getDetails("TEMP");
+		String check = login.playerLogin("TEMP");
 		assertEquals(check,"Raaid");
 	}
 	
@@ -31,7 +31,7 @@ public class LoginTest {
 	public void checkCorrectLoginForTony() throws LoginException 
 	{
 		System.out.println("\nCorrect password check for user Tony");
-		String check = login.getDetails("TEMP");
+		String check = login.playerLogin("TEMP");
 		assertEquals(check,"Tony");
 	}
 
@@ -39,7 +39,7 @@ public class LoginTest {
 	public void checkIncorrectPasswordForRaaid() throws LoginException
 	{
 		System.out.println("\nIncorrect password check for user Raaid");
-		login.getDetails("TEMP");
+		login.playerLogin("TEMP");
 	}
 	
 	@Test (expected = LoginException.class)
@@ -47,7 +47,7 @@ public class LoginTest {
 	{
 		System.out.println("\nCheck for clashing usernames");
 		System.out.println("\nFirst player logged in as Raaid");
-		login.getDetails("Raaid");
+		login.playerLogin("Raaid");
 	}
 	
 	
