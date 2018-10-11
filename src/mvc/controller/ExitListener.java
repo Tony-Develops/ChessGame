@@ -3,7 +3,7 @@ package mvc.controller;
 import java.awt.event.ActionEvent;
 
 import mvc.controller.FrameListener;
-import mvc.controller.MainFrame;
+import mvc.view.MainFrame;
 
 //added to menu item to close the application.
 

@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import login.GameMenu;
 import login.SimplePlayer;
-import mvc.controller.MainFrame;
+import mvc.view.MainFrame;
 
 public class RegisterListener extends MyActionListener {
 	private String playerID, playerName, playerPassword;

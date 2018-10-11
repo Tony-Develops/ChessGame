@@ -2,7 +2,7 @@ package mvc.controller;
 
 import java.awt.event.ActionListener;
 
-import mvc.controller.MainFrame;
+import mvc.view.MainFrame;
 import mvc.view.StatusBar;
 
 //an abstract class inherited by listeners that contain statusbar, gameengine, mainframe object.

@@ -1,11 +1,9 @@
-package mvc.controller;
+package mvc.view;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import login.GameMenu;
-import mvc.view.MenuBar;
-import mvc.view.StatusBar;
 
 
 
@@ -20,16 +18,21 @@ public class MainFrame extends JFrame {
 	
 	public MainFrame() {
 		menuBar = new MenuBar(gameMenu, this);
-        setSize(600,800);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setLocationRelativeTo(null);
+        BoardPanel board = new BoardPanel();
 
-        setJMenuBar(menuBar);
+//        setLocationRelativeTo(null);
 
+        setJMenuBar(menuBar);     
+        add(board.getBoard());
+ 
         
         validate();
         repaint();
+        pack();
+        setMinimumSize(this.getSize());
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 
 	public static void main(String[] args) {

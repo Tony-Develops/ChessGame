@@ -2,21 +2,30 @@ package client;
 
 import game.ChessGame;
 import login.GameMenu;
-import mvc.controller.MainFrame;
-import board.Board;
-import exceptions.BoardException;
+import mvc.view.MainFrame;
 
 public class Driver {
 
 	
 	public static void main(String[] args) throws Throwable
 	{       
-		MainFrame frame = new MainFrame();
+        Runnable r = new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				MainFrame frame = new MainFrame();
+
+			}
+        };
+        
+		r.run();
+   
 		GameMenu login = new GameMenu();
 		login.menuSystem();
 		
 		ChessGame chessGame = new ChessGame();
 		chessGame.PlayGame();
+		
 	}
 
 }

@@ -9,7 +9,6 @@ import javax.swing.JMenuItem;
 import login.GameMenu;
 import mvc.controller.RegisterListener;
 import mvc.controller.ExitListener;
-import mvc.controller.MainFrame;
 
 @SuppressWarnings("serial")
 public class MenuBar extends JMenuBar
