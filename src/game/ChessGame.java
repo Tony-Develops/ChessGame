@@ -44,7 +44,7 @@ public class ChessGame {
 			while (player1 == true) {
 				try {
 					positions = getInput();
-					board.move(positions[0], positions[1], Type.White);
+					board.movePiece(positions[0], positions[1], Colour.White);
 					player1 = false;
 				}
 				catch (Exception e)
@@ -58,7 +58,7 @@ public class ChessGame {
 			while (player2 == true) {
 				try {
 					positions = getInput();
-					board.move(positions[0], positions[1], Type.Black);
+					board.movePiece(positions[0], positions[1], Colour.Black);
 					player2 = false;
 				}
 				catch (Exception e)

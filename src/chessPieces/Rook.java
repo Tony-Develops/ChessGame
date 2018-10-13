@@ -3,16 +3,18 @@ package chessPieces;
 import java.util.ArrayList;
 import java.util.List;
 
+import board.Square;
+import tools.Colour;
 import tools.Position;
-import tools.Type;
+import tools.Colour;
 
 public class Rook extends ChessPiece {
 	
-	public Rook(Position pos, Type type) {
-		super(pos, type);
+	public Rook(Position pos, Colour pieceColour) {
+		super(pos, pieceColour);
 	}
 
-	public Position[] calcPositions(ChessPiece[][] board) {
+	public Position[] calcPositions(Square[][] board) {
 		List<Position> positions = new ArrayList<Position>();
 		Position currentPosition;
 		for (int i = 1; (pos.getPosX() + i) < board.length && i <=2; i++) {
@@ -47,7 +49,7 @@ public class Rook extends ChessPiece {
 	}
 	
 	public String chessDisplay() {
-		if(type == Type.Black)
+		if(pieceColour == Colour.Black)
 		{
 			return "[ BR ]";
 		}

@@ -43,79 +43,79 @@ public class ChessPiecesTest {
 	@Test
 	public void testChessPiece() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(1,1), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(1,1), Colour.White);
+		board.placePiece(rook);
 	}
 
 	@Test
 	public void testChessPieceMaxX() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(5,1), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(5,1), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test
 	public void testChessPieceMaxY() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(1,3), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(1,3), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test
 	public void testChessPieceMax() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(5,3), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(5,3), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test
 	public void testChessPieceMinX() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(0,1), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(0,1), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test
 	public void testChessPieceMinY() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(1,0), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(1,0), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test
 	public void testChessPieceMin() throws PlaceException
 	{
-		Rook rook = new Rook(new Position(0,0), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(0,0), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test(expected = PlaceException.class)
 	public void testChessPieceLargeX() throws Throwable
 	{
-		Rook rook = new Rook(new Position(7,1), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(7,1), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test(expected = PlaceException.class)
 	public void testChessPieceLargeY() throws Throwable
 	{
-		Rook rook = new Rook(new Position(1,5), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(1,5), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test(expected = PlaceException.class)
 	public void testChessPieceLarge() throws Throwable
 	{
-		Rook rook = new Rook(new Position(7,5), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(7,5), Colour.White);
+		board.placePiece(rook);
 	}
 	
 	@Test
 	public void testPositionsRook() throws PlaceException
 	{
 		refreshBoard();
-		Rook rook = new Rook(new Position(3,2), Type.White);
-		board.place(rook);
+		Rook rook = new Rook(new Position(3,2), Colour.White);
+		board.placePiece(rook);
 		checkPositions(ROOKTEST, rook.calcPositions(board.getBoard()));
 	}
 	
@@ -123,10 +123,10 @@ public class ChessPiecesTest {
 	public void testPositionsRookAllies() throws PlaceException
 	{
 		refreshBoard();
-		Rook rook = new Rook(new Position(3,2), Type.White);
-		board.place(rook);
-		board.place(new Bishop(new Position(2,2), Type.White));
-		board.place(new Knight(new Position(3,0), Type.White));
+		Rook rook = new Rook(new Position(3,2), Colour.White);
+		board.placePiece(rook);
+		board.placePiece(new Bishop(new Position(2,2), Colour.White));
+		board.placePiece(new Knight(new Position(3,0), Colour.White));
 		checkPositions(ROOKTESTALLIES, rook.calcPositions(board.getBoard()));
 	}
 	
@@ -134,10 +134,10 @@ public class ChessPiecesTest {
 	public void testPositionsRookEnemies() throws PlaceException
 	{
 		refreshBoard();
-		Rook rook = new Rook(new Position(3,2), Type.White);
-		board.place(rook);
-		board.place(new Bishop(new Position(2,2), Type.Black));
-		board.place(new Knight(new Position(3,0), Type.Black));
+		Rook rook = new Rook(new Position(3,2), Colour.White);
+		board.placePiece(rook);
+		board.placePiece(new Bishop(new Position(2,2), Colour.Black));
+		board.placePiece(new Knight(new Position(3,0), Colour.Black));
 		checkPositions(ROOKTESTENEMIES, rook.calcPositions(board.getBoard()));
 	}
 	
@@ -145,8 +145,8 @@ public class ChessPiecesTest {
 	public void testPositionsBishop() throws PlaceException
 	{
 		refreshBoard();
-		Bishop bishop = new Bishop(new Position(3,2), Type.White);
-		board.place(bishop);
+		Bishop bishop = new Bishop(new Position(3,2), Colour.White);
+		board.placePiece(bishop);
 		checkPositions(BISHOPTEST,bishop.calcPositions(board.getBoard()));
 	}
 	
@@ -154,10 +154,10 @@ public class ChessPiecesTest {
 	public void testPositionsBishopAllies() throws PlaceException
 	{
 		refreshBoard();
-		Bishop bishop = new Bishop(new Position(3,2), Type.White);
-		board.place(bishop);
-		board.place(new Rook(new Position(4,3), Type.White));
-		board.place(new Knight(new Position(2,1), Type.White));
+		Bishop bishop = new Bishop(new Position(3,2), Colour.White);
+		board.placePiece(bishop);
+		board.placePiece(new Rook(new Position(4,3), Colour.White));
+		board.placePiece(new Knight(new Position(2,1), Colour.White));
 		checkPositions(BISHOPTESTALLIES,bishop.calcPositions(board.getBoard()));
 	}
 	
@@ -165,10 +165,10 @@ public class ChessPiecesTest {
 	public void testPositionsBishopEnemies() throws PlaceException
 	{
 		refreshBoard();
-		Bishop bishop = new Bishop(new Position(3,2), Type.White);
-		board.place(bishop);
-		board.place(new Rook(new Position(4,3), Type.Black));
-		board.place(new Knight(new Position(2,1), Type.Black));
+		Bishop bishop = new Bishop(new Position(3,2), Colour.White);
+		board.placePiece(bishop);
+		board.placePiece(new Rook(new Position(4,3), Colour.Black));
+		board.placePiece(new Knight(new Position(2,1), Colour.Black));
 		checkPositions(BISHOPTESTENEMIES,bishop.calcPositions(board.getBoard()));
 	}
 	
@@ -176,8 +176,8 @@ public class ChessPiecesTest {
 	public void testPositionsKnight() throws PlaceException
 	{
 		refreshBoard();
-		Knight knight = new Knight(new Position(3,2), Type.White);
-		board.place(knight);
+		Knight knight = new Knight(new Position(3,2), Colour.White);
+		board.placePiece(knight);
 		checkPositions(KNIGHTTEST,knight.calcPositions(board.getBoard()));
 	}
 	
@@ -185,10 +185,10 @@ public class ChessPiecesTest {
 	public void testPositionsKnightAllies() throws PlaceException
 	{
 		refreshBoard();
-		Knight knight = new Knight(new Position(3,2), Type.White);
-		board.place(knight);
-		board.place(new Rook(new Position(5,3), Type.White));
-		board.place(new Bishop(new Position(1,1), Type.White));
+		Knight knight = new Knight(new Position(3,2), Colour.White);
+		board.placePiece(knight);
+		board.placePiece(new Rook(new Position(5,3), Colour.White));
+		board.placePiece(new Bishop(new Position(1,1), Colour.White));
 		checkPositions(KNIGHTTESTALLIES,knight.calcPositions(board.getBoard()));
 	}
 	
@@ -196,10 +196,10 @@ public class ChessPiecesTest {
 	public void testPositionsKnightEnemies() throws PlaceException
 	{
 		refreshBoard();
-		Knight knight = new Knight(new Position(3,2), Type.White);
-		board.place(knight);
-		board.place(new Rook(new Position(5,3), Type.Black));
-		board.place(new Bishop(new Position(1,1), Type.Black));
+		Knight knight = new Knight(new Position(3,2), Colour.White);
+		board.placePiece(knight);
+		board.placePiece(new Rook(new Position(5,3), Colour.Black));
+		board.placePiece(new Bishop(new Position(1,1), Colour.Black));
 		checkPositions(KNIGHTTESTENEMIES,knight.calcPositions(board.getBoard()));
 	} 
 	

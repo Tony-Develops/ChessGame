@@ -1,35 +1,36 @@
 package chessPieces;
 
 import tools.Position;
-import tools.Type;
+import board.Square;
+import tools.Colour;
 
 abstract public class ChessPiece {
 	
 	protected Position pos;
-	protected Type type;
+	protected Colour pieceColour;
 	
-	public ChessPiece(Position pos, Type type) {
+	public ChessPiece(Position pos, Colour pieceColour) {
 		this.pos = pos;
-		this.type = type;
+		this.pieceColour = pieceColour;
 	}
 	
 	public void update(Position destPos) {
 		pos = destPos;
 	}
 	
-	public abstract Position[] calcPositions(ChessPiece[][] board);
+	public abstract Position[] calcPositions(Square[][] board);
 	
 	public Position getPos() {
 
 		return pos;
 	}
 	
-	public Type getType() {
-		return type;
+	public Colour getColour() {
+		return pieceColour;
 	}
 	
-	protected Boolean checkPosition(ChessPiece[][] board, Position position) {
-		if (board[position.getPosX()][position.getPosY()] == null) {
+	protected Boolean checkPosition(Square[][] board, Position position) {
+		if (board[position.getPosX()][position.getPosY()].getChessPiece() == null) {
 			return false;
 		}
 		else {

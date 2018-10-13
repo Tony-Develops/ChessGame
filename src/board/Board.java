@@ -5,15 +5,14 @@ import chessPieces.ChessPiece;
 import chessPieces.Knight;
 import exceptions.*;
 import tools.Position;
-import tools.Type;
+import tools.Colour;
 import chessPieces.Rook;
 
 public class Board {
 
-	ChessPiece[][] board;
+	Square[][] board;
 	int sizeX;
 	int sizeY;
-	Rook rook = new Rook(new Position(1,1), Type.White);
 
 	final int SIZE_X_FLOOR = 6;
 	final int SIZE_Y_FLOOR = 4;
@@ -28,7 +27,14 @@ public class Board {
 		} else {
 			this.sizeX = sizeX;
 			this.sizeY = sizeY;
-			board = new ChessPiece[sizeX][sizeY];
+			board = new Square[sizeX][sizeY];
+			for(int y = 0; y < sizeY; y++)
+			{
+				for(int x = 0; x < sizeX; x++)
+				{
+					board[x][y] = new Square(new Position(x,y));
+				}
+			}
 		}
 	}
 
@@ -43,26 +49,26 @@ public class Board {
 				}
 				else
 				{
-					System.out.print(board[x][y].chessDisplay());
+					System.out.print(board[x][y].getChessPiece().chessDisplay());
 				}
 			}
 		}
 		System.out.println("");
 	}
 
-	public void place(ChessPiece chessPiece) throws PlaceException {
+	public void placePiece(ChessPiece chessPiece) throws PlaceException {
 		int posX = chessPiece.getPos().getPosX();
 		int posY = chessPiece.getPos().getPosY();
 
 		if (posX > sizeX - 1 || posY > sizeY - 1) {
-			throw new PlaceException("Unable to place chess piece there");
+			throw new PlaceException("Unable to placePiece chess piece there");
 		}
-		board[posX][posY] = chessPiece;
+		board[posX][posY].setChessPiece(chessPiece);
 	}
 
-	public ChessPiece move(Position pos, Position destPos, Type type) throws Throwable {
-		ChessPiece chessPiece = board[pos.getPosX()][pos.getPosY()];
-		ChessPiece destChessPiece = board[destPos.getPosX()][destPos.getPosY()];
+	public ChessPiece movePiece(Position pos, Position destPos, Colour type) throws Throwable {
+		ChessPiece chessPiece = board[pos.getPosX()][pos.getPosY()].getChessPiece();
+		ChessPiece destChessPiece = board[destPos.getPosX()][destPos.getPosY()].getChessPiece();
 
 		// Checks to see if the selected chess piece exist
 		if (chessPiece == null) {
@@ -71,63 +77,69 @@ public class Board {
 		}
 
 		// Checks to see if its the current player's piece
-		if (type != chessPiece.getType()) {
+		if (type != chessPiece.getColour()) {
 			throw new MovementException("Must move your own chess piece!");
 		}
 
 		// Checks to see if the destination for that chess piece is within its movement
 		// pattern
-		if (!checkMovement(chessPiece, destPos)) {
+		if (!canMove(chessPiece, destPos)) {
 			throw new MovementException("Destination for that piece is invalid");
 		}
 
 		// If there is a chess piece in the destination and checks if its the same
 		// colour
 		if (destChessPiece != null) {
-			if (destChessPiece.getType() == type) {
+			if (destChessPiece.getColour() == type) {
 				throw new MovementException("Cannot move into your own chess piece!");
 			}
 		}
 
 		// Move the chess piece to the new spot
-		board[destPos.getPosX()][destPos.getPosY()] = chessPiece;
-		board[pos.getPosX()][pos.getPosY()] = null;
+		board[destPos.getPosX()][destPos.getPosY()].setChessPiece(chessPiece);
+		board[pos.getPosX()][pos.getPosY()].removePiece();
 		return destChessPiece;
 	}
 
-	private boolean checkMovement(ChessPiece chessPiece, Position destPos) {
+	private boolean canMove(ChessPiece chessPiece, Position destPos) {
 		// Checks for the possible positions for the chess piece
 		Position[] possiblePos = chessPiece.calcPositions(board);
-		for (int i = 0; i < possiblePos.length; i++) {
-			if (destPos.getPosX() == possiblePos[i].getPosX() && destPos.getPosY() == possiblePos[i].getPosY()) {
+		for (int i = 0; i < possiblePos.length; i++) 
+		{
+			if (destPos.equals(possiblePos[i])) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
+	public Position[] checkPieceMovements(Position position) throws MovementException
+	{
+		if(board[position.getPosX()][position.getPosY()].getChessPiece() == null)
+		{
+			throw new MovementException("No piece exist");
+		}
+		return board[position.getPosX()][position.getPosY()].getChessPiece().calcPositions(board);
+	}
+	
 	public void boardInit() throws PlaceException
 	{
-		place(new Rook(new Position(0,0), Type.White));
-		place(new Bishop(new Position(1,0), Type.White));
-		place(new Knight(new Position(2,0), Type.White));
-		place(new Knight(new Position(3,0), Type.White));
-		place(new Bishop(new Position(4,0), Type.White));
-		place(new Rook(new Position(5,0), Type.White));
+		placePiece(new Rook(new Position(0,0), Colour.White));
+		placePiece(new Bishop(new Position(1,0), Colour.White));
+		placePiece(new Knight(new Position(2,0), Colour.White));
+		placePiece(new Knight(new Position(3,0), Colour.White));
+		placePiece(new Bishop(new Position(4,0), Colour.White));
+		placePiece(new Rook(new Position(5,0), Colour.White));
 		
-		place(new Rook(new Position(0,3), Type.Black));
-		place(new Bishop(new Position(1,3), Type.Black));
-		place(new Knight(new Position(2,3), Type.Black));
-		place(new Knight(new Position(3,3), Type.Black));
-		place(new Bishop(new Position(4,3), Type.Black));
-		place(new Rook(new Position(5,3), Type.Black));
+		placePiece(new Rook(new Position(0,3), Colour.Black));
+		placePiece(new Bishop(new Position(1,3), Colour.Black));
+		placePiece(new Knight(new Position(2,3), Colour.Black));
+		placePiece(new Knight(new Position(3,3), Colour.Black));
+		placePiece(new Bishop(new Position(4,3), Colour.Black));
+		placePiece(new Rook(new Position(5,3), Colour.Black));
 	}
 	
-	public ChessPiece[][] getBoard() {
+	public Square[][] getBoard() {
 		return board;
-	}
-	
-	public String displayEmptyCell() {
-		return "[ ]";
 	}
 }

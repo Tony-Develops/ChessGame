@@ -17,5 +17,14 @@ private int posY;
 	public int getPosY() {
 		return posY;
 	}
+	
+	public boolean equals(Position position)
+	{
+		if(posX == position.getPosX() && posY == position.getPosY())
+		{
+			return true;
+		}
+		return false;
+	}
 
 }

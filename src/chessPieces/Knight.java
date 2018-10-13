@@ -3,16 +3,17 @@ package chessPieces;
 import java.util.ArrayList;
 import java.util.List;
 
+import board.Square;
 import tools.Position;
-import tools.Type;
+import tools.Colour;
 
 public class Knight extends ChessPiece {
 
-	public Knight(Position pos, Type type) {
-		super(pos, type);
+	public Knight(Position pos, Colour pieceColour) {
+		super(pos, pieceColour);
 	}
 
-	public Position[] calcPositions(ChessPiece[][] board) {
+	public Position[] calcPositions(Square[][] board) {
 		List<Position> positions = new ArrayList<Position>();
 		if ((pos.getPosY() + 2) < board[0].length && (pos.getPosX() + 1) < board.length) {
 			positions.add(new Position(pos.getPosX() + 1, pos.getPosY() + 2));
@@ -42,7 +43,7 @@ public class Knight extends ChessPiece {
 	}
 
 	public String chessDisplay() {
-		if(type == Type.Black)
+		if(pieceColour == Colour.Black)
 		{
 			return "[ BK ]";
 		}
