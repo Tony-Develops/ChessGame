@@ -141,19 +141,6 @@ public class BoardTest {
 	}
 	
 	//Expect to have the same chess piece that gets killed
-	@Test
-	public void deadBishopExpected() throws Throwable
-	{
-		ChessPiece chessPieceReturn;
-		ChessPiece chessPieceExpect = new Bishop(new Position(3,3), Colour.Black);
-		board.placePiece(new Bishop(new Position(0,0), Colour.White));
-		board.placePiece(chessPieceExpect);
-		board.displayBoard();
-		board.movePiece(new Position(3,3), new Position(2,2), Colour.Black);
-		board.displayBoard();
-		chessPieceReturn = board.movePiece(new Position(0,0), new Position(2,2), Colour.White);	
-		assertEquals(chessPieceReturn, chessPieceExpect);
-	}
 	
 	@Test
 	public void testingSetUp() throws Throwable
@@ -161,12 +148,6 @@ public class BoardTest {
 		board.boardInit();
 	}
 	
-	@After
-	public void testingDisplay() throws Throwable
-	{
-		board.displayBoard();
-		System.out.println("---------------------");
-	}
 	
 
 }
