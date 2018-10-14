@@ -2,53 +2,46 @@ package testcases;
 
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.Test;
 
 
 import exceptions.LoginException;
 import game.GameMenu;
+import game.SimplePlayer;
 
 public class LoginTest {
 
-	private GameMenu login;
+	private GameMenu gameMenu;
 	
 	@Before
 	public void setUp() throws LoginException 
 	{
-		login = new GameMenu();
+		gameMenu = new GameMenu();
+		Set<SimplePlayer> players = new HashSet<SimplePlayer>();
+		SimplePlayer player = new SimplePlayer("Raaid", "Raaid", "123");
+		players.add(player);
 	}
 
 	@Test 
 	public void checkCorrectLoginForRaaid() throws LoginException 
 	{
 		System.out.println("\nCorrect password check for user Raaid");
-		String check = login.playerLogin("TEMP");
+		String check = gameMenu.playerLogin();
 		assertEquals(check,"Raaid");
 	}
 	
-	@Test
-	public void checkCorrectLoginForTony() throws LoginException 
-	{
-		System.out.println("\nCorrect password check for user Tony");
-		String check = login.playerLogin("TEMP");
-		assertEquals(check,"Tony");
-	}
 
 	@Test (expected = LoginException.class)
 	public void checkIncorrectPasswordForRaaid() throws LoginException
 	{
 		System.out.println("\nIncorrect password check for user Raaid");
-		login.playerLogin("TEMP");
+		gameMenu.playerLogin();
 	}
 	
-	@Test (expected = LoginException.class)
-	public void checkClashingUserName() throws LoginException
-	{
-		System.out.println("\nCheck for clashing usernames");
-		System.out.println("\nFirst player logged in as Raaid");
-		login.playerLogin("Raaid");
-	}
-	
+
 	
 }
