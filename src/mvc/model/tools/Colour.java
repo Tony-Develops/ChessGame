@@ -1,4 +1,4 @@
-package tools;
+package mvc.model.tools;
 
 public enum Colour 
 {

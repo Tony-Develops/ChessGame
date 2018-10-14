@@ -1,12 +1,12 @@
-package board;
+package mvc.model.board;
 
-import chessPieces.Bishop;
-import chessPieces.ChessPiece;
-import chessPieces.Knight;
 import exceptions.*;
-import tools.Position;
-import tools.Colour;
-import chessPieces.Rook;
+import mvc.model.chessPieces.Bishop;
+import mvc.model.chessPieces.ChessPiece;
+import mvc.model.chessPieces.Knight;
+import mvc.model.chessPieces.Rook;
+import mvc.model.tools.Colour;
+import mvc.model.tools.Position;
 
 public class Board {
 

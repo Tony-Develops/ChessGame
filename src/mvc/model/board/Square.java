@@ -1,7 +1,7 @@
-package board;
+package mvc.model.board;
 
-import chessPieces.ChessPiece;
-import tools.Position;
+import mvc.model.chessPieces.ChessPiece;
+import mvc.model.tools.Position;
 
 public class Square 
 {

@@ -2,12 +2,12 @@ package testcases;
 
 import org.junit.Test;
 
-import board.*;
-import chessPieces.Bishop;
-import chessPieces.Knight;
-import chessPieces.Rook;
 import exceptions.*;
-import tools.*;
+import mvc.model.board.*;
+import mvc.model.chessPieces.Bishop;
+import mvc.model.chessPieces.Knight;
+import mvc.model.chessPieces.Rook;
+import mvc.model.tools.*;
 
 import static org.junit.Assert.assertEquals;
 

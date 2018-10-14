@@ -2,10 +2,10 @@ package testcases;
 
 import org.junit.Test;
 
-import board.Board;
-import chessPieces.*;
 import exceptions.*;
-import tools.*;
+import mvc.model.board.Board;
+import mvc.model.chessPieces.*;
+import mvc.model.tools.*;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package game;
+package mvc.model.game;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 import exceptions.LoginException;
-import game.SimplePlayer;
+import mvc.model.game.SimplePlayer;
 
 public class GameMenu {
 

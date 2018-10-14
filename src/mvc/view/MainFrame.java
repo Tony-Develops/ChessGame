@@ -3,7 +3,7 @@ package mvc.view;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import game.GameMenu;
+import mvc.model.game.GameMenu;
 
 
 

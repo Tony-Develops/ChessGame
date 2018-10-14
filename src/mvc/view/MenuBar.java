@@ -6,8 +6,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import game.GameMenu;
 import mvc.controller.RegisterListener;
+import mvc.model.game.GameMenu;
 import mvc.controller.ExitListener;
 import mvc.controller.LoginListener;
 

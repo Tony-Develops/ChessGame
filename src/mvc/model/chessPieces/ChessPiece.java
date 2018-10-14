@@ -1,8 +1,8 @@
-package chessPieces;
+package mvc.model.chessPieces;
 
-import tools.Position;
-import board.Square;
-import tools.Colour;
+import mvc.model.board.Square;
+import mvc.model.tools.Colour;
+import mvc.model.tools.Position;
 
 abstract public class ChessPiece {
 	

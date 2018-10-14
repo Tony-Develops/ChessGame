@@ -1,11 +1,11 @@
-package chessPieces;
+package mvc.model.chessPieces;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import board.Square;
-import tools.Position;
-import tools.Colour;
+import mvc.model.board.Square;
+import mvc.model.tools.Colour;
+import mvc.model.tools.Position;
 
 public class Bishop extends ChessPiece {
 

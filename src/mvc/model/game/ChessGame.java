@@ -1,10 +1,10 @@
-package game;
+package mvc.model.game;
 
-import board.Board;
 import exceptions.BoardException;
 import exceptions.PlaceException;
-import chessPieces.*;
-import tools.*;
+import mvc.model.board.Board;
+import mvc.model.chessPieces.*;
+import mvc.model.tools.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

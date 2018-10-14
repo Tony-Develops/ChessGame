@@ -1,4 +1,4 @@
-package game;
+package mvc.model.game;
 
 import java.util.Iterator;
 

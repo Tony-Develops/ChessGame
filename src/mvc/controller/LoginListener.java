@@ -5,8 +5,8 @@ import java.util.Collection;
 
 import javax.swing.JOptionPane;
 
-import game.GameMenu;
-import game.SimplePlayer;
+import mvc.model.game.GameMenu;
+import mvc.model.game.SimplePlayer;
 import mvc.view.MainFrame;
 
 public class LoginListener extends MyActionListener  {

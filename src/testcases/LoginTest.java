@@ -10,8 +10,8 @@ import org.junit.Test;
 
 
 import exceptions.LoginException;
-import game.GameMenu;
-import game.SimplePlayer;
+import mvc.model.game.GameMenu;
+import mvc.model.game.SimplePlayer;
 
 public class LoginTest {
 
